@@ -1,20 +1,16 @@
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/1342803/36623515-7293b4ec-18d3-11e8-85ab-4e2f8fb38fbd.png" width="320" alt="API Template">
-    <br>
-    <br>
-    <a href="http://docs.vapor.codes/3.0/">
-        <img src="http://img.shields.io/badge/read_the-docs-2196f3.svg" alt="Documentation">
-    </a>
-    <a href="https://discord.gg/vapor">
-        <img src="https://img.shields.io/discord/431917998102675485.svg" alt="Team Chat">
-    </a>
-    <a href="LICENSE">
-        <img src="http://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
-    </a>
-    <a href="https://circleci.com/gh/vapor/api-template">
-        <img src="https://circleci.com/gh/vapor/api-template.svg?style=shield" alt="Continuous Integration">
-    </a>
-    <a href="https://swift.org">
-        <img src="http://img.shields.io/badge/swift-4.1-brightgreen.svg" alt="Swift 4.1">
-    </a>
-</p>
+# Swifty Rota
+
+Swifty Rota is a simple server app (and commandline version too) that attempts solves the problem - _"who's turn is it this week to do X?"_
+
+It does this by offering a simple `HTTP GET` API that takes a list of names and returns whichever one should be on rota for this current fortnight, by simply dividing up time into two week chunks and mapping the rota onto it. Obviously it doesn't do the "dividing up time into two week chunks" as an actual calculation across all of time but simply works it out based on the current week number in the current year (gregorian calcular only right now).
+
+A basic all would look like 
+
+`curl --get https://somedomain.com?names="John,Paul,Ringo,George"`
+
+and return simply 
+
+```
+HTTP 200 OK
+Ringo
+```
